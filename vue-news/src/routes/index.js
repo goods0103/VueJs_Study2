@@ -35,7 +35,7 @@ export const router = new VueRouter({
     },
     {
       // path url 주소
-      path: "/user",
+      path: "/user/:id",
       // component: url 주소로 갔을 때 표시될 컴포넌트
       component: UserView,
     },
