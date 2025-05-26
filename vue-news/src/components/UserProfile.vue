@@ -4,18 +4,23 @@
       <i class="fas fa-user"></i>
     </div>
     <div class="user-decription">
-      <!-- <router-link :to="`/user/${fetchedItem.user}`">
-        {{ fetchedItem.user }}
-      </router-link>
+      <slot name="username"></slot>
       <div class="time">
-        {{ fetchedItem.time_ago }}
-      </div> -->
+        <slot name="time"></slot>
+      </div>
+      <slot name="karma"></slot>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    userInfo() {
+      return this.$store.state.user;
+    },
+  },
+};
 </script>
 
 <style scoped>
