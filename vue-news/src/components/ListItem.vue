@@ -40,25 +40,8 @@
 export default {
   computed: {
     listItems() {
-      const routeName = this.$route.name;
-      if (routeName === "asks") {
-        return this.$store.state.asks;
-      } else if (routeName === "news") {
-        return this.$store.state.news;
-      } else if (routeName === "jobs") {
-        return this.$store.state.jobs;
-      }
+      return this.$store.state.list;
     },
-  },
-  created() {
-    const routeName = this.$route.name;
-    if (routeName === "asks") {
-      this.$store.dispatch("FETCH_ASKS");
-    } else if (routeName === "news") {
-      this.$store.dispatch("FETCH_NEWS");
-    } else if (routeName === "jobs") {
-      this.$store.dispatch("FETCH_JOBS");
-    }
   },
 };
 </script>

@@ -4,6 +4,7 @@ import {
   fetchAskList,
   fetchUserInfo,
   fetchItemInfo,
+  fetchList,
 } from "../apis/index.js";
 
 export default {
@@ -12,6 +13,7 @@ export default {
       .then((response) => {
         // console.log(response.data);
         context.commit("SET_NEWS", response.data);
+        return response;
       })
       .catch((error) => console.log(error));
   },
@@ -42,6 +44,14 @@ export default {
       .then((response) => {
         console.log(response.data);
         commit("SET_ITEM", response.data);
+      })
+      .catch((error) => console.log(error));
+  },
+  FETCH_LIST({ commit }, pageName) {
+    fetchList(pageName)
+      .then((response) => {
+        console.log(response.data);
+        commit("SET_LIST", response.data);
       })
       .catch((error) => console.log(error));
   },
